@@ -1,0 +1,20 @@
+index.js -> Responsável por chamar todas as camadas
+
+Services:  
+    - Toda lógica de negócio
+    - Toda chamada externa (API, Arquivos, DB)
+Views:
+    - Toda iteração com o DOM (Com o HTML, com a página)
+Controller: 
+    - É a intermediária entre (services e/ou workers) e views
+Factories:
+    - A Factory é quem importa as dependencias 
+    - Cria o objeto final para fazermos as chamadas
+    - Retorna a função que inicializa o fluxo daquele componente (init)
+Workers:
+    - Toda lógica PESADA(que envolva CPU)
+    - Tudo que pode travar a tela (for loop, machine learning, AI, processamento de WebCAM)
+    - Ele chama as regras de negócio da service
+
+-> Index chama o Index.js que chama o Factory, que cria as dependecias e o objeto final e envia as dependencias para o controller, 
+por sua vez o controller conversa com o service que tem acesso ao workers
